@@ -1,0 +1,24 @@
+{
+  "name": "fsd57wde-be",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Renuka",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Renuka-M-Anjutagi/FSD57WDE-BE.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Renuka-M-Anjutagi/FSD57WDE-BE/issues"
+  },
+  "homepage": "https://github.com/Renuka-M-Anjutagi/FSD57WDE-BE#readme",
+  "description": "",
+  "dependencies": {
+    "mongodb": "^6.6.1"
+  }
+}
