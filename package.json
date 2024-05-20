@@ -19,6 +19,8 @@
   "homepage": "https://github.com/Renuka-M-Anjutagi/FSD57WDE-BE#readme",
   "description": "",
   "dependencies": {
-    "mongodb": "^6.6.1"
+    "express": "^4.19.2",
+    "mongodb": "^6.6.1",
+    "nodemon": "^3.1.0"
   }
 }

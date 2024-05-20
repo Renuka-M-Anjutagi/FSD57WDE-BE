@@ -25,13 +25,13 @@ const connectToDB = async () => {
 
         // create a query
         const query = { 'address.country': 'Brazil' };
-
+        // cursor : a pointer  to the result set of a query
         const cursor = collection.find(query);
 
         // print documents
-        // await cursor.forEach(doc => {
-        //     console.log(doc);
-        // })
+         //await cursor.forEach(doc => {
+          // console.log(doc);
+       // })
         // ascending order: 1
         // descending order: -1
         const result = await cursor.sort({ price: -1 }).limit(10).toArray();
