@@ -56,3 +56,35 @@ npm run dev
 9. git init
 
 10.create a .gitignore file
+
+
+
+
+// File System
+Npm package
+
+- Built-in Modules
+ - fs: File System
+ - http:Http 
+ - url - URL 
+ - path: path
+- Third Party Modules
+  - express: Web Framework
+  - mongoose:mongoDB Object Moduling
+  - mongoDB:mongoDB Driver
+  - Scoket.io: Real-time Engine
+  - Axios : HTTP Client
+  - Nodemon : Auto Restart
+  - NodeMailer : Email
+  - Multer :File Upload
+  - Bcrypt :Passport Hashing
+  - JWT : JSON Web token
+  - Morgon: Logger
+  
+     - Passport : Authentication
+  - Custom Modules
+    - Middleware : Middleware
+    - config : Congrasulation
+    - routes : Routes 
+    -Models : Models 
+    - controllers : Controllers 

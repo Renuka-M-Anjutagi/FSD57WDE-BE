@@ -1,26 +1,54 @@
-// import the app module
-const app = require('./app');
+// File handeling
+const { error } = require('console');
+const fs = require('fs');
 
-// import the mongoose module
-const mongoose = require('mongoose');
 
-// log the message connecting to the MongoDB
-console.log('Connecting to MongoDB...');
+//Read file
 
-// import config module
-const config = require('./utils/config');
-
-mongoose.connect(config.MONGODB_URI)
-  .then(
-    () => {
-      console.log('Connected to MongoDB');
-
-      // start the server
-      app.listen(3001, () => {
-        console.log('Server is running on http://localhost:3001');
-      });
+fs.readFile('text.txt','utf8', (err , data) =>{
+  if(err)
+    {
+      console.log(err);
+      return;
     }
-  )
-  .catch((error) => {
-    console.error('Error connecting to MongoDB: ', error.message);
-  });
+    console.log(data.split('\n'));
+});
+
+//Read File synchronously
+try{
+  const data = fs.readFileSync('test.txt','utf8')
+  console.log(data);
+}catch(error){
+
+  console.log(error);
+
+}
+
+// write file
+
+const data1 = "Hello World!";
+
+fs.writeFile('date-time.txt', data1 , (err) => {
+
+  if(err){
+    console.log(err);
+    return;
+  }
+  console.log(data1);
+  console.log('File write successfully');
+});
+
+// write file in append mode
+
+
+const dataapp = "Welcome tobe appended";
+
+fs.appendFile('test.txt', dataapp , (err) => {
+
+  if(err){
+    console.log(err);
+    return;
+  }
+  console.log(dataapp);
+  console.log('File write successfully');
+});
