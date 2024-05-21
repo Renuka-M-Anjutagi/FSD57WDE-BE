@@ -1,51 +1,26 @@
+// import the app module
+const app = require('./app');
 
+// import the mongoose module
+const mongoose = require('mongoose');
 
-// import MongoClient from 'mongodb';
-const { MongoClient } = require('mongodb');
+// log the message connecting to the MongoDB
+console.log('Connecting to MongoDB...');
 
-const connectToDB = async () => {
-    // define the connection string
-    const uri = `mongodb+srv://renukac2:123456ABC@mongodb1.fv4wdqy.mongodb.net/`;
+// import config module
+const config = require('./utils/config');
 
-    // create a new MongoClient
-    const client = new MongoClient(uri);
-    try {
-        // connect to the client
-        await client.connect();
+mongoose.connect(config.MONGODB_URI)
+  .then(
+    () => {
+      console.log('Connected to MongoDB');
 
-        console.log('Connected to MongoDB');
-
-        // get the database
-        const database = client.db('sample_airbnb');
-
-        // get the collection
-        const collection = database.collection('listingsAndReviews');
-
-        // display all the documents in the collection
-
-        // create a query
-        const query = { 'address.country': 'Brazil' };
-
-        const cursor = collection.find(query);
-
-        // print documents
-        // await cursor.forEach(doc => {
-        //     console.log(doc);
-        // })
-        // ascending order: 1
-        // descending order: -1
-        const result = await cursor.sort({ price: -1 }).limit(10).toArray();
-
-        const listings = result.map(listing => [listing.name, parseFloat((listing.price).toString())]);
-
-        console.log(listings);
-    } catch (e) {
-        console.error(e);
-    } finally {
-        // close the connection
-        await client.close();
-        console.log('Disconnected from MongoDB');
+      // start the server
+      app.listen(3001, () => {
+        console.log('Server is running on http://localhost:3001');
+      });
     }
-}
-
-connectToDB()
+  )
+  .catch((error) => {
+    console.error('Error connecting to MongoDB: ', error.message);
+  });
